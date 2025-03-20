@@ -28,5 +28,15 @@ class UserController extends Controller
             ]);
             return redirect()->route('home')->with('success', 'User updated succesfully');
     }
+
+    public function destroy($id){
+        $user = User::find($id);
+        // $user->delete();
+        if ($user->delete()) {
+            return redirect()->route('home')->with('success', 'User deleted successfully.');
+        } else {
+            return redirect()->route('home')->with('error', 'Failed to delete user.');
+        }
+    }
 }
 
