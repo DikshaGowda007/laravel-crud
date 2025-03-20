@@ -17,3 +17,4 @@ Route::get('/',[UserController::class, 'index'])->name('home');
 // Route::get('/edit',[UserController::class, 'edit'])->name('edit');
 Route::put('/update/{id}',[UserController::class, 'update'])->name('update');
 Route::delete('/delete/{id}', [UserController::class, 'destroy'])->name('delete');
+Route::post('/create', [UserController::class, 'store'])->name('create');

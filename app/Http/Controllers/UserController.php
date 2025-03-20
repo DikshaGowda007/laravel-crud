@@ -11,13 +11,14 @@ class UserController extends Controller
         $users = User::all();
         return view('home', ['users' => $users]);
     }
+    public function store(Request $request){
+        User::create($request->all());
+        return redirect()->route('home')->with('success', 'User updated succesfully');
 
-    public function edit($id){
-        $users = User::find($id);
-        // echo "Edit";
     }
-
     public function update(Request $request, $id){
+
+        dump($request->all());
             $user = User::find($id);
             $user->update([
                 'name' => $request->name,
