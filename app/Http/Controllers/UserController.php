@@ -11,5 +11,22 @@ class UserController extends Controller
         $users = User::all();
         return view('home', ['users' => $users]);
     }
+
+    public function edit($id){
+        $users = User::find($id);
+        // echo "Edit";
+    }
+
+    public function update(Request $request, $id){
+            $user = User::find($id);
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'age' => $request->age,
+                'phone' => $request->phone,
+                'city' => $request->city,
+            ]);
+            return redirect()->route('home')->with('success', 'User updated succesfully');
+    }
 }
 

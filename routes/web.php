@@ -14,3 +14,5 @@ Route::get('/', function () {
 // Route::get('/', [PageController::class, 'showHome'])->name('home');
 
 Route::get('/',[UserController::class, 'index'])->name('home');
+// Route::get('/edit',[UserController::class, 'edit'])->name('edit');
+Route::put('/update/{id}',[UserController::class, 'update'])->name('update');
